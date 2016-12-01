@@ -8,22 +8,22 @@ import org.springframework.web.servlet.mvc.Controller;
 
 import com.hb.model.GuestDao;
 
-public class ListController implements Controller {
-
+public class DeleteController implements Controller {
+	
 	private GuestDao dao;
 	
 	public void setDao(GuestDao dao) {
 		this.dao = dao;
 	}
 	
-	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("alist", dao.selectAll());
-		mav.setViewName("guest/list");
-		return mav;
+		
+		int sabun = Integer.parseInt(request.getParameter("idx"));
+		dao.deleteOne(sabun);
+		
+		return new ModelAndView("redirect:list.hb");
 	}
 
 }

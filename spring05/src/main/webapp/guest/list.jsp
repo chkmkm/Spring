@@ -24,16 +24,14 @@
 	<c:forEach items="${alist }" var="bean">
 	<tr>
 		<td>${bean.sabun }</td>
-		<td><a href="detail.do?idx=${bean.sabun }">${bean.name }</a></td>
+		<td><a href="detail.hb?idx=${bean.sabun }">${bean.name }</a></td>
 		<td>${bean.nalja }</td>
 		<td>${bean.pay }</td>
 	</tr>
 	</c:forEach>
 	
 	</table>
-	<c:if test="${loginOk}">
-		<p><a href="add.do">입력</a></p>
-	</c:if>
+		<p><a href="add.hb">입력</a></p>
 </body>
 </html>
 

@@ -27,19 +27,26 @@ public class GuestDao {
 			pstmt=conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();
 			while(rs.next()){
-				list.add(new GuestVo(
-						rs.getInt("sabun")
-						, rs.getString("name")
-						, rs.getDate("nalja")
-						, rs.getInt("pay")
-						));
+				GuestVo bean = func(rs);
+				list.add(bean);
 			}
+			conn.commit();
 		}finally{
 			if(rs!=null)rs.close();
 			if(pstmt!=null)pstmt.close();
 			if(conn!=null)conn.close();
 		}
 		return list;
+	}
+
+	private GuestVo func(ResultSet rs) throws SQLException {
+		GuestVo bean = new GuestVo(
+				rs.getInt("sabun")
+				, rs.getString("name")
+				, rs.getDate("nalja")
+				, rs.getInt("pay")
+				); 
+		return bean;
 	}
 }
 
