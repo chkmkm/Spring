@@ -16,7 +16,7 @@ import com.dodo.model.GuestVo;
 public class GuestDao {
 	
 	private JdbcTemplate jdbcTemplate;
-	RowMapper<GuestVo> rowMapper;
+	private RowMapper<GuestVo> rowMapper;
 	
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
